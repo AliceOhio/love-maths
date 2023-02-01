@@ -14,6 +14,12 @@ document.addEventListener("DOMContentLoaded", function() {
         })
     }
 
+    document.getElementById("answer-box").addEventListener("keydown", function(event){
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    })
+    
     runGame("addition");
 })
 
@@ -35,6 +41,8 @@ function runGame(gameType) {
         alert (`Unknown game type: ${gameType}`);
         throw `Unknwon game type: ${gameType}. Aborting!`
     }
+    document.getElementById("answer-box").value = "";
+    document.getElementById("answer-box").focus();
 }
 
 /**
